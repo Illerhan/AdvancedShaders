@@ -42,12 +42,16 @@
   </PropertyGroup>
   <ItemGroup>
      <Folder Include="Assets" />
+     <Folder Include="Assets\Textures" />
      <Folder Include="Assets\Materais" />
+     <None Include="Assets\Shader\FlagShader.shader" />
      <None Include="Assets\Shader\Line.shader" />
      <None Include="Assets\Shader\SpashShader.shader" />
      <None Include="Assets\Shader\Sqrt.shader" />
      <None Include="Assets\Shader\GradiantShader.shader" />
+     <None Include="Assets\Shader\DisplacementShader.shader" />
      <Folder Include="Assets\Scenes" />
+     <None Include="Assets\Shader\DisplaceShader.shader" />
      <None Include="Assets\Shader\MonochromeSahder.shader" />
      <None Include="Assets\Shader\StartShader.shader" />
      <Folder Include="Assets\Shader" />

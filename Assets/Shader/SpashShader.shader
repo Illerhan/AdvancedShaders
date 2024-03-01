@@ -1,17 +1,16 @@
-Shader "Unlit/StartShader"
+Shader "Unlit/SpalshShader"
 { 
     Properties{
         _Color("Color",Color) = (1,1,1,1)
         _SecondaryColor("Secondary Color",Color) = (1,1,1,1)
         _MainTex("Main Texture", 2D) = "white"{}
 
+
     }
     SubShader
     {
         Tags { 
-            "Queue" = "Transparent"
-            "RenderType"="Transparent" 
-            "IgnoreProjector"="True"
+
         }
        
         Pass
@@ -24,6 +23,7 @@ Shader "Unlit/StartShader"
             uniform half4 _SecondaryColor;
             uniform sampler2D _MainTex;
             uniform float4 _MainTex_ST;
+            uniform float4 _Height;
 
             #include "UnityCG.cginc"
 
@@ -50,7 +50,8 @@ Shader "Unlit/StartShader"
 
             half4 frag(VertexOutput i) : COLOR
             {
-            return tex2D(((_MainTex, i.texcoord) * _Color) + ((_MainTex, i.texcoord) * _SecondaryColor)));
+
+            return tex2D(_MainTex, i.texcoord) * _Color + (1-tex2D(_MainTex, i.texcoord)) * _SecondaryColor;
             }
             ENDCG
         }
