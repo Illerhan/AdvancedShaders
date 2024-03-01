@@ -1,4 +1,5 @@
-Shader "Unlit/DisplaceShader"
+
+Shader "Unlit/test"
 { 
     Properties{
         _Color("Color",Color) = (1,1,1,1)
@@ -27,8 +28,6 @@ Shader "Unlit/DisplaceShader"
             uniform half4 _SecondaryColor;
             uniform sampler2D _NoiseTexF;
             uniform float4 _NoiseTexF_ST;
-            uniform sampler2D _NoiseTexS;
-            uniform float4 _NoiseTexS_ST;
             uniform float _HeightFactor;
             uniform float _Speed;
             uniform float _Frequency;
@@ -64,23 +63,32 @@ Shader "Unlit/DisplaceShader"
                 VertexOutput o;
                 v.vertex = vertexAnimFlag(v.vertex,v.texcoord);
                 float4 offset = v.normal * tex2Dlod(_NoiseTexF, v.texcoord*_NoiseTexF_ST)*_HeightFactor;
-                offset *= (sin((v.texcoord.y - _Time.y * _Speed) * _Frequency) * _Amplitude);
                 o.pos = UnityObjectToClipPos(v.vertex + offset);
                 o.texcoord.xy = (v.texcoord.xy * _NoiseTexF_ST.xy + _NoiseTexF_ST.zw);
-                //o.displacement = lerp(_Color,_SecondaryColor,v.vertex.y);
-                float factor = (sin((v.texcoord.y - _Time.y * _Speed) * _Frequency) * _Amplitude);
-                float color = (offset.y/(2*factor)) + (factor/2);
-                float percentage = (v.vertex.y + color);
-               
-                o.displacement = (_Color * percentage + _SecondaryColor * (1-percentage));
+                
+                // Calculate sine wave sign
+                float sineSign = sin((v.vertex.y - _Time.y * _Speed) * _Frequency);
+                
+                // Calculate displacement and color
+                float percentage = (v.vertex.y + offset.y) / _HeightFactor;
+                float4 displacementColor;
+                
+                if (sineSign > 0) {
+                    // Spikes become holes
+                    displacementColor = _SecondaryColor * percentage + _Color * (1 - percentage);
+                } else {
+                    // Holes become spikes
+                    displacementColor = _Color * percentage + _SecondaryColor * (1 - percentage);
+                }
+                
+                o.displacement = displacementColor;
                 
                 return o;
             }
 
             half4 frag(VertexOutput i) : COLOR
             {
-            return i.displacement;
-                //tex2D(_NoiseTexF, i.texcoord) * _Color + (1-tex2D(_NoiseTexF, i.texcoord)) * _SecondaryColor;
+                return i.displacement;
             }
             ENDCG
         }

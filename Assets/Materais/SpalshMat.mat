@@ -65,12 +65,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NoiseTexF:
         m_Texture: {fileID: 2800000, guid: 07de6b48e0ad1ce4695f1897d9a53527, type: 3}
-        m_Scale: {x: 0.2, y: 0.2}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 0.3, y: 0.3}
+        m_Offset: {x: 0, y: 1}
     - _NoiseTexS:
         m_Texture: {fileID: 2800000, guid: a5f5c3a81e90a7d42a1e20bdc1d208e5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 3.27, y: 1}
+        m_Offset: {x: 0.48, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -81,21 +81,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Amplitude: 23.17
     - _BumpScale: 1
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Frequency: 0.64
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HeightFactor: 1.33
+    - _HeightFactor: 0.66
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 0.91
     - _SrcBlend: 1
     - _Stencil: 0
     - _StencilComp: 8
@@ -106,7 +109,7 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.93333334, g: 0.6738137, b: 0.5686275, a: 1}
+    - _Color: {r: 0, g: 0.9696946, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SecondaryColor: {r: 0.105882354, g: 0.5254902, b: 0.67058825, a: 1}
+    - _SecondaryColor: {r: 0.13665895, g: 0.34145266, b: 0.7830189, a: 1}
   m_BuildTextureStacks: []
