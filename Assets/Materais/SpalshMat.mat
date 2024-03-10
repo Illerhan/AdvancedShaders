@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SpalshMat
-  m_Shader: {fileID: 4800000, guid: fac1c941fc902b34aa51790378ee3216, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3d0f6ac88e64914419c7c319b7c098c9, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -81,7 +81,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 23.17
+    - _Amplitude: 1.12
     - _BumpScale: 1
     - _ColorMask: 15
     - _Cutoff: 0.5
@@ -96,6 +96,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _SecondAmplitude: 0.53
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.91
@@ -109,7 +110,7 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.9696946, b: 1, a: 1}
+    - _Color: {r: 0.8490566, g: 0.7435936, b: 0.56470275, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SecondaryColor: {r: 0.13665895, g: 0.34145266, b: 0.7830189, a: 1}
+    - _SecondaryColor: {r: 0.43907973, g: 0.59597117, b: 0.6509434, a: 1}
   m_BuildTextureStacks: []
